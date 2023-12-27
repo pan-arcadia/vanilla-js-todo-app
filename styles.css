@@ -1,17 +1,31 @@
 html {
-    font-family: 'Raleway', sans-serif;
+    --color-text: hsl(210 50% 20%);
+    --color-border: hsl(210 50% 20% / 0.2);
+    --color-highlight: hsl(210 50% 60%);
+    --font-size: calc(20 / 16 * 1rem);
+    --font-family: 'Raleway', sans-serif;
+
+    color: var(--color-text);
+    font-family: var(--font-family);
 }
 
 :is(header, main) {
+    margin: 0 auto;
     max-width: calc(600 / 16 * 1rem);
     width: 100%;
-    margin: 0 auto;
 }
 
+/* General button rules */
+
 button {
-    border: none;
     background-color: transparent;
-    font-size: calc(20 / 16 * 1em);
+    border: none;
+    color: var(--color-text);
+    font-size: var(--font-size);
+}
+
+button i:hover {
+    color: var(--color-highlight);
 }
 
 article {
@@ -23,7 +37,7 @@ article {
 /* Form Rules */
 
 form {
-    border: 1px solid hsl(180, 1%, 29%);
+    border: 1px solid var(--color-border);
     border-radius: 0.4em;
     display: flex;
     padding: 1em;
@@ -31,7 +45,9 @@ form {
 
 form input {
     border: none;
-    font-size: calc(20 / 16 * 1em);
+    flex-grow: 1;
+    font-size: var(--font-size);
+    margin-right: 1rem;
     outline: none;
 }
 
@@ -39,28 +55,35 @@ form button {
     margin-left: auto;
 }
 
-form button:hover {
-    color: lightcoral;
-}
-
 /* Todo List Rules */
 
+.todoList {
+    border: 1px solid var(--color-border);
+    border-radius: 0.4em;
+    width: 100%;
+}
+
 .todoList ul {
+    display: grid;
+    font-size: var(--font-size);
     list-style-type: none;
     margin: 0;
     padding: 1em;
-    border: 1px solid hsl(180, 1%, 29%);
-    border-radius: 0.4em;
-    font-size: calc(20 / 16 * 1em);
-    display: grid;
-    gap: 0.5em;
+}
 
+.todoList > button {
+    border: 1px solid var(--color-border);
+    border-radius: 0.4em;
+    display: flex;
+    margin-block: 0 1rem;
+    margin-inline: auto 1rem;
+    padding: 0.4em 1em;
 }
 
 .todoItem {
+    border-bottom: 1px solid var(--color-border);
     display: flex;
-    align-items: center;
-
+    padding-block: 0.3em;
 }
 
 .todoItem span {
@@ -68,7 +91,7 @@ form button:hover {
 }
 
 .todoItem button {
-    padding-left: 0.5em;
+    padding-left: 0.5rem;
 }
 
 
