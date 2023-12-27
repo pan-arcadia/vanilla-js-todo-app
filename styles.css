@@ -1,0 +1,123 @@
+html {
+    background-image: linear-gradient(130deg, #FFFFFF, #1C3F80);
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 100vh;  
+    min-width: 600px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif;
+    justify-content: center;
+    margin: auto;
+    width: 600px;
+}
+
+.logo {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 500px;
+    padding: 1.5rem 0;
+}
+
+.main {
+    padding: 20px;
+}
+
+form {
+    background-color: #FFFFFF;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+}
+
+form input[type="text"] {
+    border: none;
+    color: #595959;
+    flex-grow: 1;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    height: 30px;
+    outline: 0;
+}
+
+form button {
+    font-size: 1.5rem;
+    background-color: #FFFFFF;
+    outline: 0;
+    border: none;
+    color: #595959;
+}
+
+form button:hover {
+    color: lightcoral;
+} 
+
+.todoList {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px 25px;
+    height: 100%;
+}
+
+.todoList button {
+    font-size: 1.5rem;
+    background-color: #FFFFFF;
+    outline: 0;
+    border: none;
+    color: #595959;
+}
+
+.todoList button.clearAll {
+    display: flex;
+    font-size: 0.9rem;
+    margin-left: auto;
+}
+
+.todoList button:hover {
+    color: lightcoral;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+li {
+    align-items: center;
+    border: 1px solid lightgrey;
+    color: #595959;
+    display: flex;
+    font-size: 1rem;
+    padding: 1em 1em;
+}
+
+i {
+    pointer-events: none;
+}
+
+.todo-item {
+    flex-grow: 1;
+}
+
+.todoItemDone {
+    text-decoration: line-through;
+}
+
+
+/* .clearAll {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.clearAll:hover {
+    color: lightcoral;
+} */
