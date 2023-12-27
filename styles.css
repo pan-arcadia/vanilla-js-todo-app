@@ -68,17 +68,19 @@ form button {
     font-size: var(--font-size);
     list-style-type: none;
     margin: 0;
-    padding: 1em;
+    padding-inline: 1em;
 }
 
 .todoList > button {
     border: 1px solid var(--color-border);
     border-radius: 0.4em;
     display: flex;
-    margin-block: 0 1rem;
+    margin-block: 1rem;
     margin-inline: auto 1rem;
     padding: 0.4em 1em;
 }
+
+/* Todo List Item Rules */
 
 .todoItem {
     border-bottom: 1px solid var(--color-border);
