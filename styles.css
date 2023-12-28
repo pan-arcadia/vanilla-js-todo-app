@@ -71,6 +71,10 @@ form button {
     padding-inline: 1em;
 }
 
+.todoList ul i {
+    pointer-events: none;
+}
+
 .todoList > button {
     border: 1px solid var(--color-border);
     border-radius: 0.4em;
@@ -81,6 +85,10 @@ form button {
 }
 
 /* Todo List Item Rules */
+
+.todoItemDone {
+    text-decoration: line-through;
+}
 
 .todoItem {
     border-bottom: 1px solid var(--color-border);

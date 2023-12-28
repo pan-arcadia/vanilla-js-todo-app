@@ -1,8 +1,21 @@
-// Selectors
-document.querySelector('form').addEventListener('submit', handleSubmitForm)
-document.querySelector('.clearAll').addEventListener('click', handleClearList)
+// Event Listeners
+
+document.querySelector('form')
+    .addEventListener('submit', handleSubmitForm)
+
+document.querySelector('.todoList button')
+    .addEventListener('click', handleDeleteTodos)
+
+function addTodoItemEventListeners(todoItem) {
+    todoItem.querySelector('button[name="checkButton"]')
+        .addEventListener('click', handleCheckTodo)
+
+    todoItem.querySelector('button[name="deleteButton"]')
+        .addEventListener('click', handleDeleteTodo)
+}
 
 // Event Handlers
+
 function handleSubmitForm(e) {
     e.preventDefault()
     let input = document.querySelector('input')
@@ -10,11 +23,26 @@ function handleSubmitForm(e) {
     input.value = ''
 }
 
-function handleClearList() {
+function handleDeleteTodos() {
     let ul = document.querySelector('ul')
     let listItems = ul.querySelectorAll('li')
-    listItems.forEach(item => item.remove())
+    // listItems.forEach(item => item.remove())
+    listItems.forEach((item) => {
+        item.removeEventListener('click', handleCheckTodo)
+        item.removeEventListener('click', handleDeleteTodo)
+        item.remove()
+    })
 }
+
+function handleCheckTodo(event) {
+    event.target.parentNode.querySelector('span')
+        .classList.toggle('todoItemDone')
+}
+
+function handleDeleteTodo(event) {
+    event.target.parentNode.remove()
+}
+
 
 // Helpers
 function addTodo(todo) {
@@ -24,10 +52,10 @@ function addTodo(todo) {
     li.innerHTML = `
         <div class="todoItem">
             <span>${todo}</span>
-            <button name="checkButton">
+            <button type="button" name="checkButton">
                 <i class="fas fa-check-square"></i>
             </button>
-            <button name="deleteButton">
+            <button type="button" name="deleteButton">
                 <i class="fas fa-trash"></i>
             </button>
         </div>
@@ -35,18 +63,7 @@ function addTodo(todo) {
 
     ul.appendChild(li)
 
-    let checkButton = li.querySelector('button[name="checkButton"]')
-    checkButton.addEventListener('click', checkTodo)
-
-    let deleteButton = li.querySelector('button[name="deleteButton"]')
-    deleteButton.addEventListener('click', deleteTodo)
+    addTodoItemEventListeners(li)
 }
 
-function checkTodo(event) {
-    event.target.parentNode.querySelector('span').classList.toggle('todoItemDone')
-}
-
-function deleteTodo(event) {
-    event.target.parentNode.remove()
-}
 
