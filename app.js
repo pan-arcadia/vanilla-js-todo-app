@@ -18,16 +18,13 @@ function addTodoItemEventListeners(todoItem) {
 
 function handleSubmitForm(e) {
     e.preventDefault()
-    let input = document.querySelector('input')
+    let input = document.querySelector('form input')
     if (input.value != '') addTodo(input.value)
     input.value = ''
 }
 
 function handleDeleteTodos() {
-    let ul = document.querySelector('ul')
-    let listItems = ul.querySelectorAll('li')
-    // listItems.forEach(item => item.remove())
-    listItems.forEach((item) => {
+    document.querySelectorAll('ul li').forEach((item) => {
         item.removeEventListener('click', handleCheckTodo)
         item.removeEventListener('click', handleDeleteTodo)
         item.remove()
@@ -35,12 +32,12 @@ function handleDeleteTodos() {
 }
 
 function handleCheckTodo(event) {
-    event.target.parentNode.querySelector('span')
+    this.parentNode.querySelector('span')
         .classList.toggle('todoItemDone')
 }
 
 function handleDeleteTodo(event) {
-    event.target.parentNode.remove()
+    this.parentNode.remove()
 }
 
 

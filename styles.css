@@ -71,9 +71,11 @@ form button {
     padding-inline: 1em;
 }
 
+/*
 .todoList ul i {
     pointer-events: none;
 }
+*/
 
 .todoList > button {
     border: 1px solid var(--color-border);
